@@ -16,7 +16,7 @@ int main()
 	{
 		number = rand() % 100;
 		cout << number << endl;
-
+		suma += number;
 
 
 
