@@ -1,10 +1,18 @@
-﻿// gra rpg.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
 #include <iostream>
 #include <cstdlib>
 #include <windows.h>
 #include <string>
 using namespace std;
+struct attack {
+	string id;
+	string name;
+	int zwykly;
+	int magiczny;
+	int mana;
+	int damage;
+
+};
+	
 struct hero {
 	string id;
 	string name;
@@ -24,32 +32,31 @@ struct hero {
 
 void skille(){
 	int attack;
-	cout << "wybierz atak" << endl;
+	cout << " wybierz atak:" << endl;
+	cout << "ataki do wyboru" << endl << "1. Zwykly" << endl << "2. Magiczny (koszt 50 many)" << endl;
 	cin >> attack;
 	switch (attack)
 	{
 	case 1:
-		cout << "atak 1 " << endl;
+		cout << "wybrales zwykly " << endl;
+		
 
 		break;
 
 	case 2:
-		cout << "atak 2" << endl;
+		cout << "wybrales magiczny" << endl;
 
 		break;
 
-	case 3:
-		cout << "atak 3"  << endl;
 
-		break;
-
-		
 	}
 }
 int main()
 {
 	
 	
+
+
 
 	srand(time(NULL));
 	int enemy_choice = rand() % 10 + 1;
@@ -126,13 +133,29 @@ int main()
 	dinozaur.damage = 8;
 
 
-	int myherohp = 1;
-	int myheroarmor = 1;
-	int myherodamage = 1;
+	int myherohp;
+	int myheroarmor;
+	int myherodamage;
+	int myheromana;
 
-	int enemyherohp = 1;
-	int enemyheroarmor = 1;
-	int enemyherodamage = 1;
+	int enemyherohp;
+	int enemyheroarmor;
+	int enemyherodamage;
+	int enemyheromana;
+
+
+	attack zwykly;
+	zwykly.name = "zwykly atak";
+	myherodamage = zwykly.damage;
+	zwykly.mana = -10;
+
+
+
+
+	attack magiczny;
+	magiczny.name = "magiczy atak";
+	magiczny.damage = 250;
+	magiczny.mana = 60;
 
 	int wybor;
 	cout << " wybierz postac:" << endl;
@@ -145,6 +168,7 @@ int main()
 		myherohp = knight.hp;
 		myheroarmor = knight.armor;
 		myherodamage = knight.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 2)
 	{
@@ -152,6 +176,7 @@ int main()
 		myherohp = archer.hp;
 		myheroarmor = archer.armor;
 		myherodamage = archer.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 3)
 	{
@@ -159,6 +184,7 @@ int main()
 		myherohp = warrior.hp;
 		myheroarmor = warrior.armor;
 		myherodamage = warrior.damage;
+		myheromana = 100;
 	}
 
 	else if (wybor == 4)
@@ -167,6 +193,7 @@ int main()
 		myherohp = soldier.hp;
 		myheroarmor = soldier.armor;
 		myherodamage = soldier.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 5)
 	{
@@ -174,6 +201,7 @@ int main()
 		myherohp = sniper.hp;
 		myheroarmor = sniper.armor;
 		myherodamage = sniper.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 6)
 	{
@@ -181,6 +209,7 @@ int main()
 		myherohp = swordman.hp;
 		myheroarmor = swordman.armor;
 		myherodamage = swordman.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 7)
 	{
@@ -188,6 +217,7 @@ int main()
 		myherohp = barbarian.hp;
 		myheroarmor = barbarian.armor;
 		myherodamage = barbarian.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 8)
 	{
@@ -195,6 +225,7 @@ int main()
 		myherohp = boss.hp;
 		myheroarmor = boss.armor;
 		myherodamage = boss.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 9)
 	{
@@ -202,6 +233,7 @@ int main()
 		myherohp = megaknight.hp;
 		myheroarmor = megaknight.armor;
 		myherodamage = megaknight.damage;
+		myheromana = 100;
 	}
 	else if (wybor == 10)
 	{
@@ -209,6 +241,7 @@ int main()
 		myherohp = dinozaur.hp;
 		myheroarmor = dinozaur.armor;
 		myherodamage = dinozaur.damage;
+		myheromana = 100;
 	}
 
 
@@ -223,6 +256,7 @@ int main()
 		enemyherohp = knight.hp;
 		enemyheroarmor = knight.armor;
 		enemyherodamage = knight.damage;
+		enemyheromana = 100;
 	}
 
 	else if (enemy_choice == 2)
@@ -231,6 +265,7 @@ int main()
 		enemyherohp = archer.hp;
 		enemyheroarmor = archer.armor;
 		enemyherodamage = archer.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 3)
 	{
@@ -238,6 +273,7 @@ int main()
 		enemyherohp = warrior.hp;
 		enemyheroarmor = warrior.armor;
 		enemyherodamage = warrior.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 4)
 	{
@@ -245,6 +281,7 @@ int main()
 		enemyherohp = soldier.hp;
 		enemyheroarmor = soldier.armor;
 		enemyherodamage = soldier.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 5)
 	{
@@ -252,6 +289,7 @@ int main()
 		enemyherohp = sniper.hp;
 		enemyheroarmor = sniper.armor;
 		enemyherodamage = sniper.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 6)
 	{
@@ -259,6 +297,7 @@ int main()
 		enemyherohp = swordman.hp;
 		enemyheroarmor = swordman.armor;
 		enemyherodamage = swordman.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 7)
 	{
@@ -266,6 +305,7 @@ int main()
 		enemyherohp = barbarian.hp;
 		enemyheroarmor = barbarian.armor;
 		enemyherodamage = barbarian.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 8)
 	{
@@ -273,6 +313,7 @@ int main()
 		enemyherohp = boss.hp;
 		enemyheroarmor = boss.armor;
 		enemyherodamage = boss.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 9)
 	{
@@ -280,6 +321,7 @@ int main()
 		enemyherohp = megaknight.hp;
 		enemyheroarmor = megaknight.armor;
 		enemyherodamage = megaknight.damage;
+		enemyheromana = 100;
 	}
 	else if (enemy_choice == 10)
 	{
@@ -287,10 +329,11 @@ int main()
 		enemyherohp = dinozaur.hp;
 		enemyheroarmor = dinozaur.armor;
 		enemyherodamage = dinozaur.damage;
+		enemyheromana = 100;
 	}
 	
-	cout << "statystyki twojej postaci" << endl << myherohp << endl << myheroarmor << endl << myherodamage << endl << endl;
-	cout << "statystyki przeciwnika" << endl << enemyherohp << endl << enemyheroarmor << endl << enemyherodamage  << endl;
+	cout << "statystyki twojej postaci" << endl << "hp:" << myherohp << endl << "armor:" << myheroarmor  << endl << "damage:" << myherodamage <<  endl << "mana" << myheromana << endl;
+	cout << "statystyki przeciwnika" << endl << "hp:" << enemyherohp << endl << "armor:" << enemyheroarmor << endl << "damage:"  << enemyherodamage << endl << "mana" << enemyheromana << endl;
 	skille();
 
 
