@@ -346,6 +346,7 @@ int main()
     
    do {
        cout << "wybierz atak" << endl;
+       cout << "ataki do wyboru :" << " 1. zwykly   2. magiczny" << endl;
        cin >> choose;
       	
         switch (choose)
