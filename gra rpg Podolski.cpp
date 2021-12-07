@@ -12,7 +12,7 @@ struct attack {
 	int damage;
 
 };
-	
+
 struct hero {
 	string id;
 	string name;
@@ -26,10 +26,10 @@ struct hero {
 	int attack2;
 	int attack3;
 	int heal;
-	
+
 };
 
-void skille(){
+void skille() {
 	int attack;
 
 	cout << " wybierz atak:" << endl;
@@ -39,7 +39,7 @@ void skille(){
 	{
 	case 1:
 		cout << "wybrales zwykly " << attack << endl;
-		
+
 
 		break;
 
@@ -53,14 +53,14 @@ void skille(){
 }
 int main()
 {
-	
-	
+
+
 
 
 
 	srand(time(NULL));
 	int enemy_choice = rand() % 10 + 1;
-	
+
 	hero archer;
 	archer.name = "archer";
 	archer.hp = 600;
@@ -115,7 +115,7 @@ int main()
 
 	hero boss;
 	boss.name = "boss";
-	boss.hp = 1200;	
+	boss.hp = 1200;
 	boss.armor = 90;
 	boss.damage = 50;
 
@@ -156,8 +156,8 @@ int main()
 	magiczny.name = "magiczy atak";
 	magiczny.damage = 120;
 	magiczny.mana = 60;
-	
-	
+
+
 
 	int wybor;
 	cout << " wybierz postac:" << endl;
@@ -215,7 +215,7 @@ int main()
 	}
 	else if (wybor == 7)
 	{
-		cout << "wybrales barbarzynce"<< endl << endl;
+		cout << "wybrales barbarzynce" << endl << endl;
 		myherohp = barbarian.hp;
 		myheroarmor = barbarian.armor;
 		myherodamage = barbarian.damage;
@@ -303,7 +303,7 @@ int main()
 	}
 	else if (enemy_choice == 7)
 	{
-		cout << "przeciwnik wybral rycerza" << endl << endl;
+		cout << "przeciwnik wybral barbarzynce" << endl << endl;
 		enemyherohp = barbarian.hp;
 		enemyheroarmor = barbarian.armor;
 		enemyherodamage = barbarian.damage;
@@ -311,7 +311,7 @@ int main()
 	}
 	else if (enemy_choice == 8)
 	{
-		cout << "przeciwnik wybral rycerza" << endl << endl;
+		cout << "przeciwnik wybral szefa" << endl << endl;
 		enemyherohp = boss.hp;
 		enemyheroarmor = boss.armor;
 		enemyherodamage = boss.damage;
@@ -319,7 +319,7 @@ int main()
 	}
 	else if (enemy_choice == 9)
 	{
-		cout << "przeciwnik wybral rycerza" << endl << endl;
+		cout << "przeciwnik wybral mega rycerza" << endl << endl;
 		enemyherohp = megaknight.hp;
 		enemyheroarmor = megaknight.armor;
 		enemyherodamage = megaknight.damage;
@@ -327,67 +327,80 @@ int main()
 	}
 	else if (enemy_choice == 10)
 	{
-		cout << "przeciwnik wybral rycerza" << endl << endl;
+		cout << "przeciwnik wybral dinozaura" << endl << endl;
 		enemyherohp = dinozaur.hp;
 		enemyheroarmor = dinozaur.armor;
 		enemyherodamage = dinozaur.damage;
 		enemyheromana = 100;
 	}
-	
-	cout << "statystyki twojej postaci" << endl << "hp:" << myherohp << endl << "armor:" << myheroarmor  << endl << "damage:" << myherodamage <<  endl << "mana" << myheromana << endl;
-	cout << "statystyki przeciwnika" << endl << "hp:" << enemyherohp << endl << "armor:" << enemyheroarmor << endl << "damage:"  << enemyherodamage << endl << "mana" << enemyheromana << endl;
+
+	cout << "statystyki twojej postaci" << endl << "hp:" << myherohp << endl << "armor:" << myheroarmor << endl << "damage:" << myherodamage << endl << "mana" << myheromana << endl;
+	cout << "statystyki przeciwnika" << endl << "hp:" << enemyherohp << endl << "armor:" << enemyheroarmor << endl << "damage:" << enemyherodamage << endl << "mana" << enemyheromana << endl;
 
 
 
-    
-
-    int attack = 0;
-    int choose;
-    
-   do {
-       cout << "wybierz atak" << endl;
-       cout << "ataki do wyboru :" << " 1. zwykly   2. magiczny" << endl;
-       cin >> choose;
-      	
-        switch (choose)
-        {
-        case 1:
-             attack = myherodamage;
-             
-            enemyherohp -= attack;
-            cout << "twoja postac atakuje zadając " << attack << " przeciwnikowi " << "zdrowie przeciwnika : " << enemyherohp << endl;
-            break;
-        case 2:
-            attack = magiczny.damage;
-            
-            enemyherohp -= attack;
-            cout <<"twoja postac atakuje zadając " << attack << " przeciwnikowi " << "zdrowie przeciwnika : " << enemyherohp << endl;
-            break;
-        default:
-            break;
-        }
-        
-        
-        srand(time(NULL));
-	int los = rand() % 2 + 1;
-        switch (los) {
-        case 1:
-             attack = enemyherodamage;
-            myherohp -= attack;
-            cout << "przeciwnik atakuje  zadając " << attack << " twojej postaci" << " twoje zdrowie  : " << myherohp << endl;
-            break;
-        case 2:
-            attack = magiczny.damage;
-            myherohp -= attack;
-            cout << "przeciwnik atakuje  zadając " << attack << " twojej postaci" << " twoje zdrowie  : " << myherohp << endl;
-            break;
-        default:
-     
-            break;
-        }
-         
-} while (myherohp > 0 && enemyherohp > 0);
 
 
-   
+	int attack = 0;
+	int choose;
+
+	do {
+		cout << "wybierz atak" << endl;
+		cout << "ataki do wyboru :" << " 1. zwykly   2. magiczny" << endl;
+		cin >> choose;
+
+		switch (choose)
+		{
+		case 1:
+			attack = myherodamage;
+
+			enemyherohp -= attack;
+			cout << "twoja postac atakuje zadajac " << attack << " przeciwnikowi " << "zdrowie przeciwnika : " << enemyherohp << endl;
+			break;
+		case 2:
+			attack = magiczny.damage;
+
+			enemyherohp -= attack;
+			cout << "twoja postac atakuje zadajac " << attack << " przeciwnikowi " << "zdrowie przeciwnika : " << enemyherohp << endl;
+			break;
+		default:
+			break;
+		}
+
+
+		srand(time(NULL));
+		int los = rand() % 2 + 1;
+		switch (los) {
+		case 1:
+			attack = enemyherodamage;
+			myherohp -= attack;
+			cout << "przeciwnik atakuje  zadając " << attack << " twojej postaci" << " twoje zdrowie  : " << myherohp << endl;
+			break;
+		case 2:
+			attack = magiczny.damage;
+			myherohp -= attack;
+			cout << "przeciwnik atakuje  zadając " << attack << " twojej postaci" << " twoje zdrowie  : " << myherohp << endl;
+			break;
+		default:
+
+			break;
+		}
+
+	} while (myherohp > 0 && enemyherohp > 0);
+	if (enemyherohp <= 0) {
+
+
+		cout << "KONIEC GRY" << endl;
+		cout << "WYGRALES" << endl;
+		cout << "GRATULACJE" << endl;
+	}
+	else if (myherohp <= 0) {
+		cout << "KONIEC GRY" << endl;
+		cout << "PRZEGRALES" << endl;
+		cout << "POCWICZ TROCHE" << endl;
+	}
+
+
+
+
 }
