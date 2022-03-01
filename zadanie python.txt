@@ -1,0 +1,17 @@
+import random
+table = ("drzewo ", "stol ", "sok ", "syrop ", "kot ", "pociag ", "woda ", "arbuz ", "chleb ", "pizza ", "mcdonalds ", "pilka ", "komputer ", "pieniadze ", "kaska ", "ciastka ", "siano ", "mamona ", "fifi", "podol", "nword", "lipton", "orbit", "ps5", "godofwar", "pralka", "Baldur", "chipsy", "spiderman", "batman", "hulk", "jezyki", "prad", "jezus", "gluchy", "klej")
+f = open('test.txt', 'a')
+a = input("ile chcesz losowych slow?\n")
+a = int(a)
+
+for i in range(0, a):
+    f.write(random.choice(table))
+
+f.close()
+f = open("test.txt", 'r')
+print(f.read())
+f.close()
+f=open('test.txt', 'r')
+data = f.read()
+characters = len(data)
+print('tyle jest znaków: ', characters)
