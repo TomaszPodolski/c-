@@ -1,0 +1,67 @@
+3 klasy:
+przemyslowa
+uslugowa
+rolnicza
+
+kazda ma miec
+imie, nazwisko, wiek
+
+dodatkowe cechy:
+pracownicy przemyslowi - sila
+pracownicy uslugowi - inteligencja, prowizja
+rolnicy - brak
+
+prowizja od 5 do 20
+
+apl. ma wyliczac pensje pracownikow
+wzor:
+przemyslowi: kwota*0.1*sila-wiek
+uslugi: kwota*0.2*inteligencja*prowizja
+rolnicy - gola pensja
+
+dzialanie programu:
+dodanie, edycja, usuniecie i wyswietlenie pracowników
+
+
+
+
+#include <iostream>
+#include <cstdlib>
+#include <windows.h>
+#include <string>
+using namespace std;
+
+class przemyslowa {
+    string imie;
+    string nazwisko;
+    int wiek;
+    int sila;
+}
+
+
+class uslugowa {
+    string imie;
+    string nazwisko;
+    int wiek;
+    int inteligencja;
+    int prowizja;
+
+}
+
+
+class rolnicza {
+    string imie;
+    string nazwisko;
+    int wiek;
+}
+
+
+
+int Main()
+{
+    int kwota;
+    int pensja;
+    pensja.przemyslowa = kwota*0.1 sila - wiek;
+    pensja.uslugowa =   kwota*0.2*inteligencja*prowizja;
+    
+}
